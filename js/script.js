@@ -8,8 +8,11 @@ function GenerateId(){
     return 'trush-' + Math.random().toString(36).substr(2,9);
 }
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     BoxListMake();
+    TrushListMake();
+    BoxCheckMake();
+    UpdatePage();
 });
 
 
@@ -292,7 +295,7 @@ function RecycledNameChange(){
                                 <div class="RecycledContentName">${Rcyed.name}：${Rcyed.description}</div>
                                 <div class="RecycledContentName">元のゴミ：${sourcetrushes}</div>
                                 <div class="RecycledContentName">元のゴミが入っているゴミ箱：${(BoxList.find(b => b.id === Rcyed.sourceboxid)?.name) || `元：${Rcyed.sourceboxid}`}</div>
-                                <button onclick="EditRecycled(${Rcyed.id})">名前・説明を変える</button>
+                                <button onclick="EditRecycled('${Rcyed.id}')">名前・説明を変える</button>
                             </div>`;
         recycledlist.insertAdjacentHTML('beforeend',rcycontent);
     }
@@ -320,10 +323,9 @@ const Pagestext = [
     {title:'No.5　《ゴミ箱の配置》' ,text:'「ゴミ箱の名前」と書かれている枠をクリックして、ゴミ箱の名前を入力します。入力した後に「ゴミ箱を追加する」ボタンを押すと、【ゴミ箱リスト】の下にゴミ箱が追加されます。'},
     {title:'No.6　《ゴミ箱の名前・説明編集　削除》' ,text:'「このゴミ箱を削除する」ボタンを押すと、そのゴミ箱が削除されます。\n「名前・説明を変える」ボタンを押すと、「新しい名前を入力してください。」等と書かれた欄が出てきます。そこに新しい名前や説明文を入力したらOKボタンを押してください。名前や説明文が変更されます。'},
     {title:'No.7　《リサイクルで新しいものを作る》' ,text:'「このゴミ箱からリサイクル」ボタンを押すと、「このゴミからリサイクルする」と右に書かれているチェックボックスにチェックされているゴミを用いて新たなものを作り出します。その新たなものの名前とそれについての説明を入力してください。（説明の有無は任意です。）入力してそれぞれOKボタンを押すと、それが【リサイクルによって生まれたものリスト】の下に追加されます。そのゴミ箱に入っているそのゴミ箱にゴミが入っていない状態ではリサイクルできません。'},
-    // {title:'No.8　《作ったものの名前・説明編集　削除》' ,text:'「このゴミ箱を削除する」ボタンを押すと、そのゴミ箱が削除されます。\n「名前・説明を変える」ボタンを押すと、「新しい名前を入力してください。」等と書かれた欄が出てきます。そこに新しい名前や説明文を入力したらOKボタンを押してください。名前や説明文が変更されます。'},
 ];
-const PagesImg = [,.../img/2.jpg,.../img/3.jpg,.../img/4.jpg,.../img/5.jpg,.../img/6.jpg,.../img/7.jpg];
-const PagesImgAlt = ['1の写真','2の写真','3の写真','4の写真','5の写真','6の写真','7の写真',//'8の写真',
+const PagesImg = ['','.../img/2.jpg','.../img/3.jpg','.../img/4.jpg','.../img/5.jpg','.../img/6.jpg','.../img/7.jpg'];
+const PagesImgAlt = ['1の写真','2の写真','3の写真','4の写真','5の写真','6の写真','7の写真',
                     ];
 let NowPage = 0;
 
@@ -362,4 +364,5 @@ function PrevPage(){
     UpdatePage();
 
 }
+
 
