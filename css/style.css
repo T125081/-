@@ -51,14 +51,16 @@ body {
         }
         &.index3m{
             padding-top: 1dvh;
-            gap: 15dvh; 
+            gap: 15dvh;
+            align-items: flex-start;
+            justify-content: flex-start;
         } 
         h1{
             &.index2h1{
-                font-size: 10dvh;
+                font-size: 5dvh;
             }
             &.index3h1{
-                font-size: 10dvh;
+                font-size: 5dvh;
             }
         }
         a{
@@ -136,7 +138,7 @@ body {
 .TutorialBox{
     background-color: #ccc;
     border-radius: 1rem;
-    width: 80dvh;
+    width: auto;
     max-width: 100dvh;
     height: auto;
     padding: 2rem;
@@ -191,3 +193,5 @@ body {
         color: #ccc;
     }
 }
+
+/* 修正していく中で習った事のない物も利用しました。 */
